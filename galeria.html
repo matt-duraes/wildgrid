@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+    <link rel="stylesheet" href="assets/css/galeria.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">
+            <img src="assets/img/body/wildbeast.svg" alt="Wildbeast">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <nav class="sidenav">
+        <ul>
+            <li class="list active" data-filter="all">
+                ALL
+            </li>
+            <li class="list" data-filter="cidade">
+                CIDADE
+            </li>
+            <li class="list" data-filter="azul">
+                AZUL
+            </li>
+            <li class="list" data-filter="natureza">
+                NATUREZA
+            </li>
+        </ul>
+    </nav>
+    <div class="container-galeria">
+        <div class="itemBox w-2 h-2" data-item="azul">
+            <img src="assets/img/images/img1.jpg" alt="">
+        </div>
+        <div class="itemBox w-2 h-1" data-item="azul">
+            <img src="assets/img/images/img2.jpg" alt="">
+
+        </div>
+        <div class="itemBox w-1 h-2" data-item="natureza">
+            <img src="assets/img/images/img3.jpg" alt="">
+
+        </div>
+        <div class="itemBox w-1 h-1" data-item="natureza">
+            <img src="assets/img/images/img4.jpg" alt="">
+
+        </div>
+        <div class="itemBox w-2 h-2" data-item="natureza">
+            <img src="assets/img/images/img5.jpg" alt="">
+
+        </div>
+        <div class="itemBox w-1 h-2" data-item="natureza">
+            <img src="assets/img/images/img6.jpg" alt="">
+
+        </div>
+        <div class="itemBox w-1 h-1" data-item="cidade">
+            <img src="assets/img/images/img7.jpg" alt="">
+        </div>
+        <div class="itemBox w-1 h-1" data-item="natureza">
+            <img src="assets/img/images/img8.jpg" alt="">
+
+        </div>
+        <div class="itemBox w-1 h-1" data-item="cidade">
+            <img src="assets/img/images/img9.jpg" alt="">
+        </div>
+    </div>
+    <footer class="footer">
+        <p>MATEUS DURÃES ©2022</p>
+    </footer>
+    <script>
+        let list = document.querySelectorAll('.list');
+        let itemBox = document.querySelectorAll('.itemBox');
+
+        for (let i = 0; i < list.length; i++) {
+            list[i].addEventListener('click', function () {
+                for (let j = 0; j < list.length; j++) {
+                    list[j].classList.remove('active');
+                }
+                this.classList.add('active');
+
+                let dataFilter = this.getAttribute('data-filter');
+                for (let k = 0; k < itemBox.length; k++) {
+                    itemBox[k].classList.remove('active');
+                    itemBox[k].classList.add('hide');
+                    if (itemBox[k].getAttribute('data-item') == dataFilter || dataFilter == "all") {
+                        itemBox[k].classList.remove('hide');
+                        itemBox[k].classList.add('active');
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
